@@ -1,0 +1,33 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+    <f:entry field="towerServer" title="Tower Server" help="/plugin/ansible-tower/help-towerServer.html">
+        <f:select />
+    </f:entry>
+    <f:entry field="jobTemplate" title="Job Template" help="/plugin/ansible-tower/help-jobTemplate.html">
+        <f:textbox />
+    </f:entry>
+    <f:entry field="extraVars" title="Extra Vars" help="/plugin/ansible-tower/help-extraVars.html">
+        <f:textarea />
+    </f:entry>
+    <f:entry field="jobTags" title="Job Tags" help="/plugin/ansible-tower/help-jobTags.html">
+        <f:textbox />
+    </f:entry>
+    <f:entry field="limit" title="Limit" help="/plugin/ansible-tower/help-limit.html">
+        <f:textbox />
+    </f:entry>
+    <f:entry field="inventory" title="Inventory" help="/plugin/ansible-tower/help-inventory.html">
+        <f:textbox />
+    </f:entry>
+    <f:entry field="credential" title="Credential" help="/plugin/ansible-tower/help-credential.html">
+        <f:textbox />
+    </f:entry>
+    <f:entry field="verbose" title="Verbose" help="/plugin/ansible-tower/help-verbose.html">
+        <f:checkbox />
+    </f:entry>
+    <f:entry field="importTowerLogs" title="Import Tower Output" help="/plugin/ansible-tower/help-import-tower-output.html">
+        <f:checkbox />
+    </f:entry>
+    <f:entry field="removeColor" title="Remove Color" help="/plugin/ansible-tower/help-remove-color.html">
+        <f:checkbox />
+    </f:entry>
+</j:jelly>
