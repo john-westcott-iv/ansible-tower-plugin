@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.security.KeyStore;
 import java.util.Vector;
@@ -169,10 +170,11 @@ public class TowerConnector {
             int asAnInt = Integer.parseInt(idToCheck);
             return idToCheck;
         } catch(NumberFormatException nfe) {
-            // We were probablly given a name, lets try and resolve the name to an ID
-            HttpResponse response = makeRequest(GET, api_endpoint);
+            // We were probably given a name, let's try and resolve the name to an ID
             JSONObject responseObject;
             try {
+                String encodedId = URLEncoder.encode(idToCheck, "UTF-8");
+                HttpResponse response = makeRequest(GET, api_endpoint + "?name=" + encodedId);
                 responseObject = JSONObject.fromObject(EntityUtils.toString(response.getEntity()));
             } catch (IOException ioe) {
                 throw new AnsibleTowerException("Unable to convert response for templates into json: " + ioe.getMessage());
